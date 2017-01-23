@@ -1,16 +1,36 @@
-var webpack = require('webpack');
-var webpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.config');
+var webpackConfig = require('./webpack.config');
+var utils = require('./utils');
+var config = require('../config/env');
+var apis = require('../config/api');
 
-var PORT = 8080;
-var HOST = "127.0.0.1";
+var webpack = require('webpack');
+var merge = require('webpack-merge');
+var webpackDevServer = require('webpack-dev-server');
+
+var PORT = config.dev.port;
+var HOST = config.dev.host;
 // 本地环境静态资源路径
 var localPublicPath = 'http://' + HOST + ':' + PORT + '/';
 
-config.output.publicPath = localPublicPath;
-config.entry.school.unshift('webpack-dev-server/client?' + localPublicPath);
+webpackConfig = merge(webpackConfig, {
+    entry: {
+        index: ['webpack-dev-server/client?' + localPublicPath]
+    },
+    output: {
+        publicPath: localPublicPath
+    },
+    module: {
+        loaders: utils.styleLoaders({ extract: true, sourceMap: config.dev.cssSourceMap })
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': config.dev.env
+        }),
+    ]
+})
 
-var app = new webpackDevServer(webpack(config), {
+var bodyParser = require('body-parser');
+var app = new webpackDevServer(webpack(webpackConfig), {
     inline: true,
     compress: false,
     stats: {
@@ -20,6 +40,21 @@ var app = new webpackDevServer(webpack(config), {
     },
     historyApiFallback: true,
 });
+
+app.use(bodyParser.json());
+
+app.use(apis.motherSchool.photos, function (req, res) {
+    res.send({
+        data: {
+            name: 'yota',
+            old: 23
+        },
+        meta: {
+            code: 0,
+            msg: ""
+        }
+    })
+})
 
 app.listen(PORT, HOST, function () {
     console.log(localPublicPath);
