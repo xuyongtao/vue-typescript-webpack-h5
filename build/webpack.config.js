@@ -50,6 +50,11 @@ var config = {
             }, {
                 test: /\.json$/,
                 loader: "json-loader"
+            }, {
+                test: /\.png|jpeg|jpg|gif|ico$/,
+                loaders: [
+                    "file?name=images/[name]_[hash:8].[ext]",
+                ]
             }
         ]
     },

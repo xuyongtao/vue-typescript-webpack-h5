@@ -46,7 +46,7 @@ function request({
         })
 }
 
-exports.api = {
+export default {
     get: (url, data) => {
         return Promise
             .resolve(request({

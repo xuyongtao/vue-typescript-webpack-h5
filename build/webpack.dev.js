@@ -54,7 +54,16 @@ app.use(apis.motherSchool.photos, function (req, res) {
             msg: ""
         }
     })
-})
+});
+
+app.use(apis.xySpeechBooking, function (req, res) {
+    res.send({
+        meta: {
+            code: 0,
+            msg: "报名成功！"
+        }
+    });
+});
 
 app.listen(PORT, HOST, function () {
     console.log(localPublicPath);

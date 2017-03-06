@@ -1,5 +1,4 @@
-const MotherSchoolPage = resolve => require.ensure([], () => resolve(require('../src/apps/mother-school/index')), 'school')
-const NinePatchPage = resolve => require.ensure([], () => resolve(require('../src/apps/nine-patch/index')), 'patch')
+const XySpeechBookingPage = resolve => require.ensure([], () => resolve(require('../src/apps/xy-speech-booking/index')), 'xy-booking');
 
 export default [
     {
@@ -14,21 +13,19 @@ export default [
                     <router-view></router-view>
                 </div>`,
         },
-        children: [{
-            path: 'mother-school',
-            name: 'ms',
-            component: MotherSchoolPage
-        }, {
-            path: 'nine-patch',
-            name: 'np',
-            component: NinePatchPage
-        }],
+        children: [
+            {
+                path: 'xy-speech-booking',
+                name: 'xy',
+                component: XySpeechBookingPage
+            }
+        ],
     },
     {
         path: '/*',
         name: 'notFound',
         component: {
-            template: `<div>404</div>`
+            template: `<div>404！找不到该页面</div>`
         }
     }
 ]

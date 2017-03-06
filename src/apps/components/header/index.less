@@ -1,0 +1,44 @@
+@import '../../../assets/css/variable.less';
+
+#header {
+    display: flex;
+    background-image: url('./header-bg.png');
+    background-repeat: repeat-x;
+    background-position-y: center;
+    
+    .logo {
+        flex: 1;
+        padding: 15/@REM 20/@REM;
+        a {
+            display: block;
+        }
+        img {
+            vertical-align: baseline;
+            width: 258/@REM;
+            height: 77/@REM;
+            border: none;
+        }
+    }
+    .tel {
+        flex: 1;
+        a {
+            display: block;
+            padding: 0 20/@REM;
+            height: 77/@REM;
+            text-align: center;
+        }
+        b, span {
+            display: block;
+            color: #fff;
+        }
+        b {
+            margin-top: 20/@REM;
+            font-size: 30/@REM;
+            font-weight: 200;
+        }
+        span {
+            margin-top: 10/@REM;
+            font-size: 14/@REM;
+        }
+    }
+}
