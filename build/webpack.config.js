@@ -27,8 +27,8 @@ var config = {
     },
     output: {
         path: DIST_PATH,
-        filename: '[name]_[hash:8].js',
-        chunkFilename: '[name]_[hash:8].chunk.js'
+        filename: 'js/[name]_[hash:8].js',
+        chunkFilename: 'js/[name]_[hash:8].chunk.js'
     },
     resolve: {
         extensions: ['', '.js', '.vue'],
@@ -65,7 +65,7 @@ var config = {
             template: SRC_PATH + '/apps/index.html',
             inject: true
         }),
-        new ExtractTextPlugin('[name]_[hash:8].css')
+        new ExtractTextPlugin('css/[name]_[hash:8].css')
     ],
     vue: {
         loaders: utils.cssLoaders({ extract: true, sourceMap: useCssSourceMap }),
