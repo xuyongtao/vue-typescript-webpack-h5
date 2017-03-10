@@ -10,6 +10,7 @@ const POST_GET_WECHAT_USER_FAIL = 'POST_GET_WECHAT_USER_FAIL';
 
 const actions = {
     [POST_GET_WECHAT_USER](context, data) {
+        console.log('POST_GET_WECHAT_USER data: ', data);
         context.dispatch(POST_GET_WECHAT_USER_ING);
 
         api
