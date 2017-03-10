@@ -18,7 +18,7 @@ var router = new VueRouter({
 router.beforeEach((to, from, next) => {
     var wechatUser = Store.get('qm91-wechat-user');
 
-    if (true || wechatUser) {
+    if (wechatUser) {
         store.state.common.wechatUser = JSON.parse(wechatUser);
 
         next();
@@ -27,11 +27,12 @@ router.beforeEach((to, from, next) => {
 
         if (wechatOpenId) {
             //发请求
+            console.log('发送请求');
+
             store.dispatch(POST_GET_WECHAT_USER, {
                 openid: wechatOpenId
             });
 
-            console.log('发送请求');
             next();
         } else {
             // next();
