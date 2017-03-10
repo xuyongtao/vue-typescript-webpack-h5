@@ -4,9 +4,6 @@ export default [
     {
         path: '/',
         name: 'index',
-        alias: [
-            '/index',
-        ],
         component: {
             template: `
                 <div>
