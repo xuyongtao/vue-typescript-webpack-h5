@@ -31,9 +31,9 @@ router.beforeEach((to, from, next) => {
             location.href =
                 'https://open.weixin.qq.com/connect/oauth2/authorize?' +
                 'appid=wx3c4a353b54fc5d32' +
-                'redirect_uri=' + encodeURIComponent('http://qmin91.com/h5?url=' + to.fullPath.slice(1)) +
-                'response_type=code' +
-                'scope=snsapi_userinfo' +
+                '&redirect_uri=' + encodeURIComponent('http://qmin91.com/h5?url=' + to.fullPath.slice(1)) +
+                '&response_type=code' +
+                '&scope=snsapi_userinfo' +
                 '#wechat_redirect';
         }
     }
