@@ -7,6 +7,7 @@ Vue.use(Vuex);
 
 const state = {
     loading: false,
+    wechatUser: {}
 }
 
 const store = new Vuex.Store({

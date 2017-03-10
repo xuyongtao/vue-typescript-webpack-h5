@@ -10,7 +10,10 @@
     import H5Header from './components/header/index';
     import H5Footer from './components/footer/index';
 
-    export default {    
+    export default { 
+        beforeCreate: function() {
+            console.log(this.$data);       
+        },   
         mounted() {
 
         },

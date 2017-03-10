@@ -6,6 +6,11 @@ const POST_BOOK_ING = 'POST_BOOK_ING';
 const POST_BOOK_SUCCESS = 'POST_BOOK_SUCCESS';
 const POST_BOOK_FAIL = 'POST_BOOK_FAIL';
 
+export const POST_CHECK_MOBILE = 'CHECK_MOBILE';
+const POST_CHECK_MOBILE_INg = 'CHECK_MOBILE_INg';
+const POST_CHECK_MOBILE_SUCCESS = 'CHECK_MOBILE_SUCCESS';
+const POST_CHECK_MOBILE_FAIL = 'CHECK_MOBILE_FAIL';
+
 const actions = {
     [POST_BOOK](context, data) {
         context.dispatch(POST_BOOK_ING);
@@ -27,6 +32,11 @@ const actions = {
     },
     [POST_BOOK_FAIL](context) {
         context.commit(POST_BOOK_FAIL);
+    },
+
+    [POST_CHECK_MOBILE](context, mobile) {
+        context.dispatch(POST_CHECK_MOBILE);
+
     }
 };
 

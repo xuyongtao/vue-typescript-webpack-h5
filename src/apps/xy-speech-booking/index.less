@@ -1,9 +1,10 @@
 @import '../../assets/css/variable.less';
 
 #xy-speech-booking {
-    background-color: #68c4f9;
+    // background-color: #68c4f9;
+    overflow: hidden;
     div.banner {
-        width: 640/@REM;
+        width: 100%;
         height: 900/@REM;
         background-image: url('./images/banner.png');
         background-repeat: no-repeat;
@@ -35,28 +36,6 @@
             line-height: 40/@REM;
         }
     }
-    div.book-form {
-        background-color: #fff;
-        overflow: hidden;
-        h2 {
-            font-size: 0;
-            line-height: 0;
-        }
-        input,button {
-            display: block;
-            margin: 20/@REM;
-            padding: 0 20/@REM;
-            width: 600/@REM;
-            height: 80/@REM;
-            line-height: 80/@REM;
-            font-size: 30/@REM;
-            box-sizing: border-box;
-            border: 1px solid #ddd;
-        }
-        button {
-            color: #fff;
-            background-color: #00b3ea;
-        }
-    }
+    
 }
 
