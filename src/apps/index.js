@@ -6,6 +6,7 @@ import Store from 'store';
 import routerConfig from '../../config/router';
 import store from './vuex/store';
 import AppIndex from './app';
+import { POST_GET_WECHAT_USER } from './vuex/modules/common/store';
 
 Vue.use(VueRouter);
 
@@ -15,14 +16,20 @@ var router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    if (Store.get('qm91-wechat-user')) {
+    var wechatUser = Store.get('qm91-wechat-user');
+
+    if (true || wechatUser) {
+        store.state.common.wechatUser = JSON.parse(wechatUser);
+
         next();
     } else {
         var wechatOpenId = to.query.openid;
 
         if (wechatOpenId) {
             //发请求
-
+            store.dispatch(POST_GET_WECHAT_USER, {
+                openid: wechatOpenId
+            });
 
             console.log('发送请求');
             next();
