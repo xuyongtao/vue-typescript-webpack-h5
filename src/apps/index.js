@@ -18,7 +18,7 @@ router.beforeEach((to, from, next) => {
     if (Store.get('qm91-wechat-user')) {
         next();
     } else {
-        var wechatOpenId = to.query.openId;
+        var wechatOpenId = to.query.openid;
 
         if (wechatOpenId) {
             //发请求
