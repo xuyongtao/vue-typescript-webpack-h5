@@ -40,15 +40,13 @@ const mutations = {
         state.fetching = false;
 
         var wechatUser = {
-            id: data.id,
+            openId: data.id,
             avatar: data.avatar,
             nickname: data.nickname,
             name: data.name,
         }
 
         state.wechatUser = wechatUser;
-
-        console.log('请求数据获取成功，设置store');
         Store.set('qm91-wechat-user', wechatUser);
     },
     [POST_GET_WECHAT_USER_FAIL](state) {
@@ -59,7 +57,7 @@ const mutations = {
 const state = {
     fetching: false,
     wechatUser: {
-        id: '',
+        openId: '',
         avatar: '',
         nickname: '',
         name: '',

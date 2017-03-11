@@ -19,7 +19,7 @@ router.beforeEach((to, from, next) => {
     var wechatUser = Store.get('qm91-wechat-user');
 
     if (wechatUser) {
-        store.state.common.wechatUser = JSON.parse(wechatUser);
+        store.state.common.wechatUser = wechatUser;
 
         next();
     } else {
