@@ -19,7 +19,7 @@ function request({
         method: method.toLowerCase(),
         body: JSON.stringify(data),
         headers: {
-            'Accept': 'application/json',
+            // 'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
     })
