@@ -25,7 +25,7 @@
 
     export default {
         created: function() {
-            console.log('created');
+            
         },
         data: function() {
             return {

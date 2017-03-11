@@ -37,3 +37,11 @@ $ ./release -d ./h5.qmin91.com
 ```
 
 -d 该参数指定前端项目发布到的本地地址，需为相对路径
+
+## 新建app步骤
+
+1. 在 /src 目录下新建一个对应app（假设该app名字为 xy-vote）的xy-vote文件夹，放置app对应的静态资源；
+
+2. 在 /src/vuex/modules/ 目录下新建xy-vote文件夹，放置app对应的action、mutations和store；
+
+3. 接下来写业务代码。
