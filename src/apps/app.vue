@@ -9,7 +9,7 @@
 
     export default { 
         beforeCreate: function() {
-            console.log(this.$data);       
+            
         },   
         mounted() {
 
