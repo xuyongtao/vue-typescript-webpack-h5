@@ -44,4 +44,6 @@ $ ./release -d ./h5.qmin91.com
 
 2. 在 /src/vuex/modules/ 目录下新建xy-vote文件夹，放置app对应的action、mutations和store；
 
-3. 接下来写业务代码。
+3. 在 /config/router.js 配置相应的路由；
+
+4. 接下来写业务代码。

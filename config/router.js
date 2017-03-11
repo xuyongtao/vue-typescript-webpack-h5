@@ -1,4 +1,5 @@
 const XySpeechBookingPage = resolve => require.ensure([], () => resolve(require('../src/apps/xy-speech-booking/index')), 'xy-booking');
+const XySpeechVotePage = resolve => require.ensure([], () => resolve(require('../src/apps/xy-speech-vote/index')), 'xy-vote');
 
 export default [
     {
@@ -13,8 +14,12 @@ export default [
         children: [
             {
                 path: 'xy-speech-booking',
-                name: 'xy',
+                name: 'xy-booking',
                 component: XySpeechBookingPage
+            }, {
+                path: 'xy-speech-vote',
+                name: 'xy-vote',
+                component: XySpeechVotePage
             }
         ],
     },
