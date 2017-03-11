@@ -1,0 +1,28 @@
+@import '../../../../assets/css/variable.less';
+
+#xy-speech-vote-exhibition-panel {
+    @gap-size: 20/@REM;
+
+    margin-bottom: @gap-size;
+    min-height: 600/@REM;
+    ul {
+        margin: 0 @gap-size;
+        padding: @gap-size @gap-size 0;
+        background-color: #fff;
+    }
+    li {
+        display: inline-block;
+        padding: @gap-size/2;
+        margin-bottom: @gap-size; 
+        width: 48%;
+        width: calc(~'50% - 0.2rem');
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        &:nth-child(2n+1) {
+            margin-right: @gap-size/2;
+        }
+        &:nth-child(2n) {
+            margin-left: @gap-size/2;
+        }
+    }
+}

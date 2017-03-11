@@ -1,0 +1,56 @@
+@import '../../../../assets/css/variable.less';
+
+#xy-speech-vote-search-bar {
+    margin: 0 20/@REM 30/@REM;    
+    div.page-info {
+        display: flex;
+        line-height: 80/@REM;
+        color: #e7b052;
+        span {
+            flex: 1;
+            &:last-child {
+                text-align: right;
+            }
+        }
+    }   
+    div.bar {
+        @size: 60/@REM;
+
+        position: relative;
+        &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: @size;
+            height: @size;
+            line-height: @size;
+            font-size: 40/@REM;
+            font-family: 'iconfont';
+            content: '\e611';
+            text-align: center;
+            color: #aaa;
+        }
+        input, span {
+            height: @size;
+            line-height: @size;
+            border-radius: @size/2;
+            box-sizing: border-box;
+            border: 1px solid #d99880;
+        }
+        input {
+            display: inline-block;
+            padding: 0 100/@REM 0 @size;
+            width: 100%;
+            box-shadow: inset 0 1px 5px rgba(0, 0, 0, .32);
+        }
+        span.btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: @size*2;
+            color: #fff;
+            text-align: center;
+            background-color: #ff9900;
+        }
+    }
+}

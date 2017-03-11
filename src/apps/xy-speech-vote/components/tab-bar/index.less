@@ -1,0 +1,36 @@
+@import '../../../../assets/css/variable.less';
+
+#xy-speech-vote-tab-bar {
+    ul {
+        display: flex;
+    }
+    li {
+        flex: 1;
+        -webkit-box-flex: 1;
+        margin: 0 10/@REM;
+        box-sizing: border-box;
+        border: 1px solid #e7b052;
+        height: 60/@REM;
+        line-height: 60/@REM;
+        font-size: 22/@REM;
+        cursor: pointer;
+        color: #fff;
+        border-radius: 10/@REM;
+        text-align: center;
+        background: -moz-linear-gradient(top, rgba(255, 191, 0, 1) 0%, rgba(255, 148, 0, 1) 100%);
+        background: -webkit-linear-gradient(top, rgba(255, 191, 0, 1) 0%, rgba(255, 148, 0, 1) 100%);
+        background: linear-gradient(to bottom, rgba(255, 191, 0, 1) 0%, rgba(255, 148, 0, 1) 100%);
+        &:first-child {
+            margin-left: 20/@REM;
+        }
+        &:last-child {
+            margin-right: 20/@REM;
+        }
+        &.active {
+            background: -moz-linear-gradient(top, rgba(255, 228, 0, 1) 0%, rgba(255, 154, 0, 1) 100%);
+            background: -webkit-linear-gradient(top, rgba(255, 228, 0, 1) 0%, rgba(255, 154, 0, 1) 100%);
+            background: linear-gradient(to bottom, rgba(255, 228, 0, 1) 0%, rgba(255, 154, 0, 1) 100%);
+            color: #fff;
+        }
+    }   
+}
