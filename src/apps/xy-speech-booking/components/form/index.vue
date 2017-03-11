@@ -4,7 +4,7 @@
         <form>
             <div><input v-model.trim="name" type="text" placeholder="名字"></div>
             <div><input ref="ageInput" :value="age" @input="correctAge($event.target.value)" type="text" placeholder="年龄"></div>
-            <div><input v-model.trim="mobile" type="text" placeholder="手机号码"></div>
+            <div><input v-focus v-model.trim="mobile" type="text" placeholder="手机号码"></div>
             <div><input v-model.trim="work_name" type="text" placeholder="作品名称"></div>
             <div><input v-model.trim="work_url" type="text" placeholder="作品链接"></div>
             
@@ -35,6 +35,26 @@
                     return /^\/api*/.test(str);
                 }
             },
+        },
+        directives: {
+            focus: {
+                bind: function(el, bingding) {
+                    el.value = '13450258690';
+                    console.log(bingding);
+                },
+                unbind: function(el) {
+                    console.log('unbind');
+                },
+                inserted: function(el) {
+                    el.focus();
+                },
+                update: function(el) {
+                    console.log(el.value);
+                },
+                componentUpdated: function() {
+                    console.log('componentUpdated');
+                }
+            }
         },
         watch: {
             mobile: function(newMobile) {

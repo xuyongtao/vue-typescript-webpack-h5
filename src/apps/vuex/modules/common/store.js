@@ -47,6 +47,8 @@ const mutations = {
         }
 
         state.wechatUser = wechatUser;
+
+        console.log('请求数据获取成功，设置store');
         Store.set('qm91-wechat-user', wechatUser);
     },
     [POST_GET_WECHAT_USER_FAIL](state) {
