@@ -36,6 +36,7 @@ router.beforeEach((to, from, next) => {
             next();
         } else {
             // next();
+            // 以下链接参数的顺序不能改动（微信限制）
             location.href =
                 'https://open.weixin.qq.com/connect/oauth2/authorize?' +
                 'appid=wx3c4a353b54fc5d32' +

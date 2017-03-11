@@ -19,10 +19,11 @@ function request({
         method: method.toLowerCase(),
         body: JSON.stringify(data),
         headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-            "mode": "cors",
-        }
+            'Access-Control-Allow-Origin': 'http://h5.qmin91.com',
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        mode: 'cors',
     })
         .then(response => {
             return Promise
