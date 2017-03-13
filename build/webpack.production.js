@@ -1,6 +1,7 @@
 var webpack = require("webpack");
 var webpackConfig = require("./webpack.config");
 var utils = require("./utils");
+var config = require('../config/env');
 var fullPath = utils.fullPath;
 var distPath;
 var __PRD__ = process.env.NODE_ENV == "production";
@@ -17,12 +18,22 @@ if (process.argv[2]) {
 }
 webpackConfig.output.path = distPath;
 
+if (process.argv[4]) {
+    var domainApi = process.argv[4];
+
+    if (!/^http:\/\/./.test(domainApi)) {
+        domainApi += 'http://';
+    }
+    if (!/.\//.test(domainApi)) {
+        domainApi += '/';
+    }
+}
+
 // 处理warning http://stackoverflow.com/questions/30030031/passing-environment-dependent-variables-in-webpack
 webpackConfig.plugins.push(
     new webpack.DefinePlugin({
-        "process.env": {
-            NODE_ENV: JSON.stringify("production")
-        }
+        "process.env": config.build.env,
+        "domain.api": domainApi,
     })
 )
 webpackConfig.plugins.push(
@@ -35,7 +46,16 @@ webpackConfig.plugins.push(
 
 if (__PRD__) {
     if (process.argv[3]) {//例如："http://h5.qmjy.dev/"
-        webpackConfig.output.publicPath = process.argv[3];
+        var path = process.argv[3];
+        // 处理一下输入没有加http://或者末尾没有加/的情况
+        if (!/^http:\/\/./.test(path)) {
+            path += 'http://';
+        }
+        if (!/.\//.test(path)) {
+            path += '/';
+        }
+
+        webpackConfig.output.publicPath = path;
     } else {
         webpackConfig.output.publicPath = "http://h5.qmin91.com/";
     }

@@ -21,12 +21,13 @@ $ ./debug
 ```bash
 $ cd 项目根目录（如：cd ~/workplace/91/h5
 $ npm install
-$ ./release -d ./a/b -p http://m.qmjy.dev/
+$ ./release -d ./a/b -p http://m.qmjy.dev/ -i http://api.qmjy.dev/h5
 ```
 
 打开浏览器访问 [http://m.qmjy.dev/]
 -d 该参数指定前端项目发布到的本地地址，需为相对路径
--p 该参数指定后端跑该项目的服务器地址（如：http://m.qmjy.dev/）
+-p 该参数指定后端跑该项目的服务器地址（如：http://m.qmjy.dev/ 或 m.qmjy.dev 或 m.qmjy.dev/）
+-i 该参数指定后端虚拟正式环境跑该项目时，修改前端所有ajax（即api）的处理域名
 
 ## 线上管理人员运行
 
