@@ -1,5 +1,118 @@
 @import '../../../../assets/css/variable.less';
-
+@import '../../../../assets/css/mixins.less';
 #xy-speech-vote-rule-panel {
+    @margin: 20/@REM;
     min-height: 600/@REM;
+    background: #fff;
+    margin: @margin;
+    border-radius: 30/@REM;
+    padding: 30/@REM 25/@REM 30/@REM 30/@REM;
+    .rule-item {
+        border-bottom: 1px dashed #c8c8c8;
+        margin-bottom: @margin;
+        &.vote {
+            h2 {
+                background-image: url("../../images/rules.png");
+            }
+        }
+        &.prize {
+            text-align: center;
+            img {
+                display: block;
+                width: 550/@REM;
+                height: 705/@REM;
+                margin: 45/@REM auto;
+            }
+        }
+        &.build {
+            padding-bottom: @margin * 2;
+            border-bottom: 0;
+            p {
+                font-size: 26/@REM;
+                color: #ff001e;
+                line-height: 40/@REM;
+                height: 40/@REM;
+                font-weight: bold;
+            }
+        }
+    }
+    h2 {
+        font-size: 0;
+        width: 550/@REM;
+        height: 110/@REM;
+        margin-bottom: @margin;
+        background-image: url("../../images/intro.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    .content {
+        font-size: @margin;
+        p {
+            line-height: 40/@REM;
+            margin-bottom: 30/@REM;
+            color: #000;
+        }
+    }
+    .content ul {
+        counter-reset: rule;
+    }
+    .content ul li {
+        position: relative;
+        list-style: none;
+        padding: 25/@REM 30/@REM 25/@REM 40/@REM;
+        border: 1px solid #ffa800;
+        margin-bottom: @margin * 2;
+        line-height: 40/@REM;
+        font-size: 22/@REM;
+        .border-radius(5/@REM);
+        &::before, &::after {
+            position: absolute;
+            top: 50%;
+            margin-top: -25/@REM;
+        }
+        &::before {
+            content: " ";
+            left: -25/@REM;
+            background-color: #ffa800;
+            width: 50/@REM;
+            height: 50/@REM;
+            line-height: 50/@REM;
+            transform: rotate(-45deg);
+        }
+        &::after {
+            content: counter(rule) "";
+            counter-increment: rule;
+
+            left: -10/@REM;
+            font-size: 38/@REM;
+            color: #fff;
+        }
+        &:nth-child(4),
+        &:nth-child(5) {
+            color: #ff0000;
+        }
+    }
+
+    .content ul li p {
+        line-height: 22/@REM;
+        margin-bottom: 15/@REM;
+    }
+    span {
+        width: 50/@REM;
+        text-align: center;
+        .inline-block-fix;
+    }
+    i {
+        color: #ffa800;
+        .inline-block-fix;
+        &.last {
+            margin: 0 15/@REM 0 10/@REM;
+        }
+    }
+    mark {
+        background-color: #ffa800;
+        color: #fff;
+        padding: 0 5/@REM;
+    }
 }
