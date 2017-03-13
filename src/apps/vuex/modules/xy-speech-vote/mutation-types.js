@@ -15,3 +15,9 @@ export const POST_VOTE = 'POST_VOTE';
 export const POST_VOTE_ING = 'POST_VOTE_ING';
 export const POST_VOTE_SUCCESS = 'POST_VOTE_SUCCESS';
 export const POST_VOTE_FAIL = 'POST_VOTE_FAIL';
+
+// 获取排行榜
+export const POST_RANKS = 'POST_RANKS';
+export const POST_RANKS_ING = 'POST_RANKS_ING';
+export const POST_RANKS_SUCCESS = 'POST_RANKS_SUCCESS';
+export const POST_RANKS_FAIL = 'POST_RANKS_FAIL';

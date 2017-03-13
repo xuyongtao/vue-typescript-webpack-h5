@@ -2,8 +2,8 @@
     <div>
         <h5-header></h5-header>
         <banner></banner>
-        <tab-bar 
-            v-on:swith="swithTab" 
+        <tab-bar
+            v-on:swith="swithTab"
             v-bind:current-tab="currentTabIndex">
         </tab-bar>
         <search-bar
@@ -11,23 +11,27 @@
             v-bind:pv="pv"
             v-on:search="search"
         ></search-bar>
-        <exhibition-panel 
-            v-if="currentTabIndex === 0" 
+        <exhibition-panel
+            v-if="currentTabIndex === 0"
             v-bind:exhibitions="exhibitions"
             v-on:updateData="updateData"
-            v-on:updateExhibitions="updateExhibitions" 
-            v-on:playVideo="playVideo"    
-            v-on:updateExhibitionVoteState="updatePlayingExhibitionVoteState"    
+            v-on:updateExhibitions="updateExhibitions"
+            v-on:playVideo="playVideo"
+            v-on:updateExhibitionVoteState="updatePlayingExhibitionVoteState"
+
         />
         <rule-panel v-if="currentTabIndex === 1" />
-        <rank-panel v-if="currentTabIndex === 2" />
-        <search-panel 
-            v-if="currentTabIndex === 3" 
-            v-bind:exhibitions="searchExhibitions"
-            v-on:playVideo="playVideo"    
-            v-on:updateExhibitionVoteState="updatePlayingExhibitionVoteState"  
+        <rank-panel v-if="currentTabIndex === 2"
+                    v-bind:ranks="ranks"
+                    v-on:loadRank="loadRank"
         />
-        <video-player 
+        <search-panel
+            v-if="currentTabIndex === 3"
+            v-bind:exhibitions="searchExhibitions"
+            v-on:playVideo="playVideo"
+            v-on:updateExhibitionVoteState="updatePlayingExhibitionVoteState"
+        />
+        <video-player
             v-if="video.showed"
             v-bind:source="video.source"
             v-bind:name="video.name"
@@ -55,7 +59,7 @@
 
     export default {
         created: function() {
-            
+
         },
         data: function() {
             return {
@@ -71,18 +75,19 @@
                 pv: 0,
                 currentTabIndex: 0,
                 homePage: 'http://m.qmin91.com/studio/355',
-                searchExhibitions: [],  
-                exhibitions: [], 
+                searchExhibitions: [],
+                exhibitions: [],
+                ranks: []
             }
         },
         mounted: function() {
-            
+
         },
         filters: {
-            
+
         },
         computed: {//计算属性有缓存
-            
+
         },
         methods: {
             swithTab: function(index) {
@@ -100,27 +105,30 @@
                 this.video = {
                     showed: true,
                     source: video.source,
-                    name: video.name,  
+                    name: video.name,
                     id: video.id,
                     index: video.index,
-                    voted: video.voted   
+                    voted: video.voted
                 }
             },
             updatePlayingExhibitionVoteState: function(index) {
                 this.video.voted = true;
-                this.exhibitions[index].voted = true; 
-                this.exhibitions[index].votes = this.exhibitions[index].votes + 1; 
+                this.exhibitions[index].voted = true;
+                this.exhibitions[index].votes = this.exhibitions[index].votes + 1;
             },
             updatePlayingExhibitionVoteStateBySearch: function(index) {
                 this.video.voted = true;
-                this.searchExhibitions[index].voted = true; 
-                this.searchExhibitions[index].votes = this.searchExhibitions[index].votes + 1; 
+                this.searchExhibitions[index].voted = true;
+                this.searchExhibitions[index].votes = this.searchExhibitions[index].votes + 1;
             },
             closePlayer: function() {
-                this.video.showed = false;       
+                this.video.showed = false;
             },
             updateExhibitions: function(exhibitions) {
                 this.exhibitions = this.exhibitions.concat(exhibitions);
+            },
+            loadRank: function(ranks) {
+                this.ranks = ranks;
             }
         },
         components: {
@@ -134,7 +142,7 @@
             RankPanel,
             SearchPanel,
             VideoPlayer
-        }  
+        }
     }
 </script>
 

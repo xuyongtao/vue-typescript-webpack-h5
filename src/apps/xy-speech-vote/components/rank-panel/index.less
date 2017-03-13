@@ -22,8 +22,26 @@
         border-top: 1px solid #e2cdba;
     }
     ul {
+        position: relative;
         padding: 35/@REM 10/@REM 50/@REM;
         counter-reset: rank;
+        min-height: 600/@REM;
+        &.loading {
+            &:after {
+                @size: 80/@REM;
+
+                position: absolute;
+                content: '';
+                width: @size;
+                height: @size;
+                bottom: 250/@REM;
+                left: 50%;
+                margin-left: -@size/2;
+                margin-top: -@size/2;
+                background-image: url('../../images/spin.gif');
+                background-size: contain;
+            }
+        }
     }
     ul li {
         position: relative;

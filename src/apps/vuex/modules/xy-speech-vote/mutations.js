@@ -11,6 +11,10 @@ import {
     POST_VOTE_ING,
     POST_VOTE_SUCCESS,
     POST_VOTE_FAIL,
+    POST_RANKS,
+    POST_RANKS_ING,
+    POST_RANKS_SUCCESS,
+    POST_RANKS_FAIL
 } from './mutation-types';
 
 export default {
@@ -41,6 +45,16 @@ export default {
         state.fetching = false;
     },
     [POST_VOTE_FAIL](state) {
+        state.fetching = false;
+    },
+
+    [POST_RANKS_ING](state) {
+        state.fetching = true;
+    },
+    [POST_RANKS_SUCCESS](state, data) {
+        state.fetching = false;
+    },
+    [POST_RANKS_FAIL](state) {
         state.fetching = false;
     }
 };

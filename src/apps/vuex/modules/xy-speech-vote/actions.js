@@ -14,6 +14,11 @@ import {
     POST_VOTE_ING,
     POST_VOTE_SUCCESS,
     POST_VOTE_FAIL,
+    POST_RANKS,
+    POST_RANKS_ING,
+    POST_RANKS_SUCCESS,
+    POST_RANKS_FAIL
+
 } from './mutation-types';
 
 export default {
@@ -86,5 +91,27 @@ export default {
         context.commit(POST_VOTE_FAIL);
     },
 
+    [POST_RANKS](context, data) {
+        context.dispatch(POST_RANKS_ING);
+
+        return api
+            .post(apiUrls.xySpeechVote.getRankLists, data)
+            .then(res => {
+                context.dispatch(POST_EXHIBITIONS_SUCCESS, res.data.exhibitions);
+                return res.data;
+            })
+            .fail(res => {
+                context.dispatch(POST_EXHIBITIONS_FAIL);
+            })
+    },
+    [POST_RANKS_ING](context) {
+        context.commit(POST_RANKS_ING);
+    },
+    [POST_RANKS_SUCCESS](context) {
+        context.commit(POST_RANKS_SUCCESS);
+    },
+    [POST_RANKS_FAIL](context) {
+        context.commit(POST_RANKS_FAIL);
+    },
 
 };
