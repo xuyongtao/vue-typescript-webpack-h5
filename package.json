@@ -12,6 +12,7 @@
   "author": "yota",
   "license": "ISC",
   "dependencies": {
+    "@types/lodash": "^4.14.55",
     "autoprefixer": "^6.6.1",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
