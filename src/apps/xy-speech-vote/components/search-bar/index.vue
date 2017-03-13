@@ -1,21 +1,54 @@
 <template>
     <div id="xy-speech-vote-search-bar">
         <div class="page-info">
-            <span>已有 8888 人投票</span>
-            <span>已有 12666 人访问</span>
+            <span>已有 {{ votes }} 人投票</span>
+            <span>已有 {{ pv }} 人访问</span>
         </div>
 		<div class="bar">
-			<input type="text" placeholder="请输入名字或编号">
-			<span class="btn">搜索</span>
+			<input v-model="keyword" type="text" placeholder="请输入名字或编号">
+			<span class="btn" v-on:click="search">搜索</span>
 		</div>
     </div>  
 </template>
 
 <script>
+    import { POST_SEARCH_EXHIBITIONS } from '../../../vuex/modules/xy-speech-vote/mutation-types';
+
     export default {
         data: function() {
             return {
-                
+                keyword: ''   
+            }
+        },
+        props: {
+            votes: {
+                type: Number,
+                required: true,
+            }, 
+            pv: {
+                type: Number,
+                required: true,
+            }
+        },
+        methods: {
+            search: function() {
+                let keyword = this.keyword.trim();
+
+                if (keyword) {
+                    let _this = this;
+
+                    _this
+                        .$store
+                        .dispatch(POST_SEARCH_EXHIBITIONS, { keyword: keyword })
+                        .then(function(data) {
+                            if (data) {
+                                _this.$emit('search', data.exhibitions);
+                            }
+                        })
+                        .fail(function() {
+                            alert('搜索作品失败，请重试！');
+                        }); 
+                }
             }
         }
     }
