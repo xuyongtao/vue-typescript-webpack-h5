@@ -33,6 +33,7 @@
         padding-left: 50/@REM;
         border-bottom: 1px solid #e5e5e5;
         color: #616161;
+        font-size: 22/@REM;
         &::before, &::after {
             position: absolute;
         }
@@ -54,19 +55,17 @@
         &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(6), &:nth-child(7), &:nth-child(8), &:nth-child(9), &:nth-child(10) {
             border-radius: 25/@REM;
             color: #fff;
-            padding-left: 100/@REM;
+            padding-left: 105/@REM;
             &::after {
                 content: "No." counter(rank);
                 counter-increment: rank;
                 left: 20/@REM;
-                top: -3/@REM;
+                top: 0;
                 font-size: 30/@REM;
                 color: #fff;
             }
             .name {
                 color: #fff;
-                height: 40/@REM;
-                line-height: 40/@REM;
             }
         }
         &:nth-child(1) {
@@ -130,26 +129,23 @@
             }
         }
     }
-    .inner{
-        background: lightgreen;
-    }
-    .name,.total{
+    .name, .total {
         vertical-align: middle;
     }
     .name {
         color: #616161;
         max-width: 180/@REM;
-         display: block;
-        float:left;
+        display: block;
+        float: left;
+        font-size: 22/@REM;
         .text-overflow();
         .inline-block-fix()
     }
-    .total{
-        max-width:200/@REM;
+    .total {
+        max-width: 200/@REM;
         text-align: right;
         display: block;
-        float:right;
-        margin-right:20/@REM;
+        float: right;
+        margin-right: 20/@REM;
     }
-
 }
