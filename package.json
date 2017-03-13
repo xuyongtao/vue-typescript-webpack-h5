@@ -44,7 +44,6 @@
     "webpack-merge": "^2.4.0"
   },
   "devDependencies": {
-    "store": "^2.0.4",
     "webpack-dev-server": "^1.16.2"
   }
 }
