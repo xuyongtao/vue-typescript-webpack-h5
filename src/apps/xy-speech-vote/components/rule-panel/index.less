@@ -2,7 +2,6 @@
 @import '../../../../assets/css/mixins.less';
 #xy-speech-vote-rule-panel {
     @margin: 20/@REM;
-    min-height: 600/@REM;
     background: #fff;
     margin: @margin;
     border-radius: 30/@REM;
@@ -16,7 +15,6 @@
             }
         }
         &.prize {
-            text-align: center;
             img {
                 display: block;
                 width: 550/@REM;
@@ -33,6 +31,7 @@
                 line-height: 40/@REM;
                 height: 40/@REM;
                 font-weight: bold;
+                margin-bottom: 0;
             }
         }
     }
@@ -48,16 +47,16 @@
     }
     .content {
         font-size: @margin;
-        p {
-            line-height: 40/@REM;
-            margin-bottom: 30/@REM;
-            color: #000;
-        }
     }
-    .content ul {
+    p {
+        line-height: 40/@REM;
+        margin-bottom: 30/@REM;
+        color: #000;
+    }
+    ul {
         counter-reset: rule;
     }
-    .content ul li {
+    ul li {
         position: relative;
         list-style: none;
         padding: 25/@REM 30/@REM 25/@REM 40/@REM;
@@ -83,18 +82,15 @@
         &::after {
             content: counter(rule) "";
             counter-increment: rule;
-
             left: -10/@REM;
             font-size: 38/@REM;
             color: #fff;
         }
-        &:nth-child(4),
-        &:nth-child(5) {
+        &:nth-child(4), &:nth-child(5) {
             color: #ff0000;
         }
     }
-
-    .content ul li p {
+    ul li p {
         line-height: 22/@REM;
         margin-bottom: 15/@REM;
     }

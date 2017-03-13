@@ -1,5 +1,155 @@
 @import '../../../../assets/css/variable.less';
-
+@import '../../../../assets/css/mixins.less';
 #xy-speech-vote-rank-panel {
+    @margin: 20/@REM;
     min-height: 600/@REM;
+    background: #fff;
+    margin: @margin;
+    border-radius: 30/@REM;
+    padding: 30/@REM 25/@REM 30/@REM 30/@REM;
+    h2 {
+        font-size: 0;
+        width: 270/@REM;
+        height: 70/@REM;
+        margin: 0 auto @margin;
+        background-image: url("../../images/rank.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    .content {
+        margin: 0 10/@REM;
+        border-top: 1px solid #e2cdba;
+    }
+    ul {
+        padding: 35/@REM 10/@REM 50/@REM;
+        counter-reset: rank;
+    }
+    ul li {
+        position: relative;
+        height: 40/@REM;
+        line-height: 40/@REM;
+        margin: 0 0 30/@REM 30/@REM;
+        padding-left: 50/@REM;
+        border-bottom: 1px solid #e5e5e5;
+        color: #616161;
+        &::before, &::after {
+            position: absolute;
+        }
+        &::before {
+            content: "•";
+            top: -3/@REM;
+            left: -30/@REM;
+            color: #452405;
+            font-size: 60/@REM;
+        }
+        &::after {
+            content: "" counter(rank);
+            counter-increment: rank;
+            left: 10/@REM;
+            top: 0;
+            font-size: 30/@REM;
+            color: #616161;
+        }
+        &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(6), &:nth-child(7), &:nth-child(8), &:nth-child(9), &:nth-child(10) {
+            border-radius: 25/@REM;
+            color: #fff;
+            padding-left: 100/@REM;
+            &::after {
+                content: "No." counter(rank);
+                counter-increment: rank;
+                left: 20/@REM;
+                top: -3/@REM;
+                font-size: 30/@REM;
+                color: #fff;
+            }
+            .name {
+                color: #fff;
+                height: 40/@REM;
+                line-height: 40/@REM;
+            }
+        }
+        &:nth-child(1) {
+            background-color: #ff6000;
+            &::before {
+                color: #ff6000;
+            }
+        }
+        &:nth-child(2) {
+            background-color: #ff8a00;
+            &::before {
+                color: #ff8a00;
+            }
+        }
+        &:nth-child(3) {
+            background-color: #ffba00;
+            &::before {
+                color: #ffba00;
+            }
+        }
+        &:nth-child(4) {
+            background-color: #fb6a5a;
+            &::before {
+                color: #fb6a5a;
+            }
+        }
+        &:nth-child(5) {
+            background-color: #ff6f91;
+            &::before {
+                color: #ff6f91;
+            }
+        }
+        &:nth-child(6) {
+            background-color: #b988df;
+            &::before {
+                color: #b988df;
+            }
+        }
+        &:nth-child(7) {
+            background-color: #7694d9;
+            &::before {
+                color: #7694d9;
+            }
+        }
+        &:nth-child(8) {
+            background-color: #9cc8e6;
+            &::before {
+                color: #9cc8e6;
+            }
+        }
+        &:nth-child(9) {
+            background-color: #86f5ee;
+            &::before {
+                color: #86f5ee;
+            }
+        }
+        &:nth-child(10) {
+            background-color: #93dfff;
+            &::before {
+                color: #93dfff;
+            }
+        }
+    }
+    .inner{
+        background: lightgreen;
+    }
+    .name,.total{
+        vertical-align: middle;
+    }
+    .name {
+        color: #616161;
+        max-width: 180/@REM;
+         display: block;
+        float:left;
+        .text-overflow();
+        .inline-block-fix()
+    }
+    .total{
+        max-width:200/@REM;
+        text-align: right;
+        display: block;
+        float:right;
+        margin-right:20/@REM;
+    }
+
 }
