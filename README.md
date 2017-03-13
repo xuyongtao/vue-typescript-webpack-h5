@@ -2,7 +2,7 @@
 
 ## 概述
 
-技术栈：```webpack + vue + typescript``` 
+技术栈：```webpack + vue``` 
 
 运行环境：node（v6.2.0）
 

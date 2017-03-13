@@ -46,7 +46,7 @@ function request({
         })
 }
 
-export default {
+module.exports = {
     get: (url, data) => {
         return Promise
             .resolve(request({

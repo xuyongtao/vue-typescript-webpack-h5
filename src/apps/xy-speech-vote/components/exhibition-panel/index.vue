@@ -14,29 +14,23 @@
 </template>
 
 <script>
+    import { POST_EXHIBITIONS } from '../../../vuex/modules/xy-speech-vote/mutation-types';
+
+    const pageSize = 10;
+
     export default {
         data: function() {
             return {
-                exhibitions: [{
-                    id: 1,
-                    name: '作品名字1',
-                    votes: 12,
-                    cover: '',
-                    video: '',
-                }, {
-                    id: 2,
-                    name: '作品名字2',
-                    votes: 12,
-                    cover: '',
-                    video: '',
-                }, {
-                    id: 3,
-                    name: '作品名字3',
-                    votes: 12,
-                    cover: '',
-                    video: '',
-                }]       
+                exhibitions: [],
+                pageData: {
+                    current: 0,
+                    size: pageSize,
+                    total: 0,
+                }       
             }
+        }, 
+        created: function() {
+            this.$store.dispatch(POST_EXHIBITIONS);   
         }
     }
 </script>

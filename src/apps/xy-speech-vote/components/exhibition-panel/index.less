@@ -4,11 +4,29 @@
     @gap-size: 20/@REM;
 
     margin-bottom: @gap-size;
-    min-height: 600/@REM;
+    
     ul {
+        position: relative;
         margin: 0 @gap-size;
         padding: @gap-size @gap-size 0;
         background-color: #fff;
+        min-height: 600/@REM;
+        &.loading {
+            &:after {
+                @size: 80/@REM;
+
+                position: absolute;
+                content: '';
+                width: @size;
+                height: @size;
+                top: 50%;
+                left: 50%;
+                margin-left: -@size/2;
+                margin-top: -@size/2;
+                background-image: url('../../images/spin.gif');
+                background-size: contain;
+            }    
+        }
     }
     li {
         display: inline-block;

@@ -3,8 +3,11 @@ const apis = {
     motherSchool: {
         photos: '/apis/post-mother-school-photos',
     },
-    xySpeechBooking: '/apis/xy-speech-booking'
-}
+    xySpeechBooking: '/apis/xy-speech-booking',
+    xySpeechVote: {
+        getExhibitions: '/apis/xy-speech-vote/get-exhibitions',
 
-// export default apis;
+    }
+};
+
 module.exports = apis;

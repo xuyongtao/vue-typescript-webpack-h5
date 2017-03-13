@@ -1,4 +1,4 @@
-import Store from 'store';
+import storePlug from 'store';
 
 import api from '../../../../utils/api';
 import apiUrls from '../../../../../config/api';
@@ -47,7 +47,7 @@ const mutations = {
         }
 
         state.wechatUser = wechatUser;
-        Store.set('qm91-wechat-user', wechatUser);
+        storePlug.set('qm91-wechat-user', wechatUser);
     },
     [POST_GET_WECHAT_USER_FAIL](state) {
         state.fetching = false;

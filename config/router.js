@@ -1,7 +1,7 @@
 const XySpeechBookingPage = resolve => require.ensure([], () => resolve(require('../src/apps/xy-speech-booking/index')), 'xy-booking');
 const XySpeechVotePage = resolve => require.ensure([], () => resolve(require('../src/apps/xy-speech-vote/index')), 'xy-vote');
 
-export default [
+module.exports = [
     {
         path: '/',
         name: 'index',

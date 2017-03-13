@@ -65,6 +65,61 @@ app.use(apis.xySpeechBooking, function (req, res) {
     });
 });
 
+// 希言投票活动
+app.use(apis.xySpeechVote.getExhibitions, function (req, res) {
+    res.send({
+        meta: {
+            code: 0,
+            msg: '获取作品成功',
+        },
+        data: {
+            pageData: {
+                current: 1,
+                size: 8,
+                total: 12,
+            },
+            exhibitions: [{
+                id: 1,
+                name: '作品名字1',
+                votes: 12,
+                cover: '',
+                video: '',
+            }, {
+                    id: 2,
+                    name: '作品名字2',
+                    votes: 12,
+                    cover: '',
+                    video: '',
+                }, {
+                    id: 3,
+                    name: '作品名字3',
+                    votes: 12,
+                    cover: '',
+                    video: '',
+                }, {
+                    id: 4,
+                    name: '作品名字4',
+                    votes: 12,
+                    cover: '',
+                    video: '',
+                }, {
+                    id: 5,
+                    name: '作品名字5',
+                    votes: 12,
+                    cover: '',
+                    video: '',
+                }, {
+                    id: 6,
+                    name: '作品名字6',
+                    votes: 12,
+                    cover: '',
+                    video: '',
+                }]
+        }
+    });
+})
+// end
+
 app.listen(PORT, HOST, function () {
     console.log(localPublicPath);
 });
