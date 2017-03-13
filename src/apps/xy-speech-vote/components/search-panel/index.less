@@ -2,4 +2,100 @@
 
 #xy-speech-vote-search-panel {
     min-height: 600/@REM;
+
+    @gap-size: 20/@REM;
+    @border-radius-size: 10/@REM;
+
+    margin-bottom: @gap-size;
+    p {
+        margin-top: @gap-size;
+        line-height: 40/@REM;
+        text-align: center;
+        color: @SECOND_COLOR;
+    }
+    ul {
+        position: relative;
+        margin: 0 @gap-size;
+        padding: @gap-size @gap-size 0;
+        background-color: #fff;
+        min-height: 600/@REM;
+        line-height: 60/@REM;
+        border-radius: @border-radius-size;
+        &.loading {
+            &:after {
+                @size: 80/@REM;
+
+                position: absolute;
+                content: '';
+                width: @size;
+                height: @size;
+                top: 50%;
+                left: 50%;
+                margin-left: -@size/2;
+                margin-top: -@size/2;
+                background-image: url('../../images/spin.gif');
+                background-size: contain;
+            }    
+        }
+    }
+    li {
+        display: inline-block;
+        padding: @gap-size/2;
+        margin-bottom: @gap-size; 
+        width: 48%;
+        width: calc(~'50% - 0.2rem');
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        border-radius: @border-radius-size;
+        &:nth-child(2n+1) {
+            margin-right: @gap-size/2;
+        }
+        &:nth-child(2n) {
+            margin-left: @gap-size/2;
+        }
+    }
+    div.cover {
+        position: relative;
+        min-height: 150/@REM;
+        background-color: #74c556;
+        border-radius: @border-radius-size;
+        border-bottom: 1px solid #ddd;
+        &:before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 20%);
+            content: '\E644';
+            color: #fff;
+            text-align: center;
+            font-size: 60/@REM;
+            font-family: 'iconfont';
+            line-height: 150/@REM;
+        }
+    }
+    div.name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    div.other {
+        display: flex;
+        text-align: right;
+        span {
+            flex: 1;
+        }
+    }
+    span.btn {
+        text-align: center;
+        color: #fff;
+        background-color: #ff9f00;
+        box-shadow: 0 1px 1px #c35000;
+        border-radius: @border-radius-size;
+        &.voted {
+            background-color: #ccc;
+            box-shadow: none;
+        }
+    }
 }

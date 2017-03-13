@@ -6,7 +6,8 @@ const apis = {
     xySpeechBooking: '/apis/xy-speech-booking',
     xySpeechVote: {
         getExhibitions: '/apis/xy-speech-vote/get-exhibitions',
-
+        searchExhibitions: '/apis/xy-speech-vote/search-exhibitions',
+        vote: '/apis/xy-speech-vote/vote',
     }
 };
 
