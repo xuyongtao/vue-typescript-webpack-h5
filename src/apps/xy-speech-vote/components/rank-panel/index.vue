@@ -15,6 +15,7 @@
 <script>
     import { POST_RANKS } from '../../../vuex/modules/xy-speech-vote/mutation-types';
 
+    const activityId = 60;
 
     export default {
         data: function() {

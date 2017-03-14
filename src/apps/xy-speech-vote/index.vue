@@ -91,6 +91,10 @@
         },
         methods: {
             swithTab: function(index) {
+                if (this.currentTabIndex == index) return;
+                this.exhibitions = [];
+                this.searchExhibitions = [];
+                this.ranks = [];                
                 this.currentTabIndex = index;
             },
             updateData: function(votes, pv) {
