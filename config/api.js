@@ -34,9 +34,9 @@ var apis = {
     xySpeechBooking: '/apis/xy-speech-booking',
     xySpeechVote: {
         getExhibitions: '/apis/vote/get/good-work-list',
-        searchExhibitions: '/apis/xy-speech-vote/search-exhibitions',
-        vote: '/apis/xy-speech-vote/vote',
-        getRankLists: '/apis/xy-speech-vote/get-rank-lists'
+        searchExhibitions: '/apis/vote/search-vote-user-list',
+        vote: '/apis/vote/activity-voting',
+        getRankLists: '/apis/vote/get/vote-rank-list'
     }
 };
 

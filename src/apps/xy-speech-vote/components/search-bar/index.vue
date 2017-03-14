@@ -5,7 +5,7 @@
             <span>已有 {{ pv }} 人访问</span>
         </div>
 		<div class="bar">
-			<input v-model="keyword" type="text" placeholder="请输入名字或编号">
+			<input v-model="keyword" type="text" placeholder="请输入作品名字或编号">
 			<span class="btn" v-on:click="search">搜索</span>
 		</div>
     </div>  

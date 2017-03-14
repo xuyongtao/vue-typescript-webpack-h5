@@ -99,7 +99,7 @@
 
                 _this
                     .$store
-                    .dispatch(POST_VOTE, { id: id })
+                    .dispatch(POST_VOTE, { activity_applicant_id: id, openid: _this.$store.state.common.wechatUser.openId })
                     .then(function() {
                         _this.$emit('updateExhibitionVoteState', index);    
                     })

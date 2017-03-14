@@ -28,8 +28,12 @@ export default {
         return api
             .post(apiUrls.xySpeechVote.getExhibitions, data)
             .then(res => {
-                context.dispatch(POST_EXHIBITIONS_SUCCESS, res.data.exhibitions);
-                return res.data;
+                if (res && res.meta.code === 0) {
+                    context.dispatch(POST_EXHIBITIONS_SUCCESS, res.data.exhibitions);
+                    return res.data;
+                } else {
+                    return;
+                }
             })
             .fail(res => {
                 context.dispatch(POST_EXHIBITIONS_FAIL);
@@ -51,8 +55,12 @@ export default {
         return api
             .post(apiUrls.xySpeechVote.searchExhibitions, data)
             .then(res => {
-                context.dispatch(POST_SEARCH_EXHIBITIONS_SUCCESS, res.data.exhibitions);
-                return res.data;
+                if (res && res.meta.code === 0) {
+                    context.dispatch(POST_SEARCH_EXHIBITIONS_SUCCESS, res.data.exhibitions);
+                    return res.data;
+                } else {
+                    return;
+                }
             })
             .fail(res => {
                 context.dispatch(POST_SEARCH_EXHIBITIONS_FAIL);
@@ -74,8 +82,12 @@ export default {
         return api
             .post(apiUrls.xySpeechVote.vote, data)
             .then(res => {
-                context.dispatch(POST_VOTE_SUCCESS);
-                return res.data;
+                if (res && res.meta.code === 0) {
+                    context.dispatch(POST_VOTE_SUCCESS);
+                    return res.data;
+                } else {
+                    return;
+                }
             })
             .fail(res => {
                 context.dispatch(POST_VOTE_FAIL);
@@ -97,8 +109,12 @@ export default {
         return api
             .post(apiUrls.xySpeechVote.getRankLists, data)
             .then(res => {
-                context.dispatch(POST_EXHIBITIONS_SUCCESS, res.data.exhibitions);
-                return res.data;
+                if (res && res.meta.code === 0) {
+                    context.dispatch(POST_EXHIBITIONS_SUCCESS, res.data.exhibitions);
+                    return res.data;
+                } else {
+                    return;
+                }
             })
             .fail(res => {
                 context.dispatch(POST_EXHIBITIONS_FAIL);
