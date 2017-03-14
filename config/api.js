@@ -7,7 +7,13 @@ function addDomain(apis, domainOfApi) {
     var addedApis = {};
     for (var key in apis) {
         if (typeof apis[key] === 'string') {
-            addedApis[key] = domainOfApi + (/^\/./.test(apis[key]) ? apis[key].slice(1) : apis[key]);
+            if (/^\/./.test(apis[key])) {
+                addedApis[key] = domainOfApi + apis[key].slice(1);
+            } else if (/^http:\/\/./.test(apis[key])) {
+                addedApis[key] = apis[key];
+            } else {
+                addedApis[key] = domainOfApi + apis[key];
+            }
         } else if (typeof apis[key] === 'object') {
             addedApis[key] = addDomain(apis[key], domainOfApi);
         }
