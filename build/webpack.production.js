@@ -22,7 +22,7 @@ if (process.argv[4]) {
     var domainApi = process.argv[4];
 
     if (!/^http:\/\/./.test(domainApi)) {
-        domainApi += 'http://';
+        domainApi = 'http://' + domainApi;
     }
     if (!/.\//.test(domainApi)) {
         domainApi += '/';
@@ -49,7 +49,7 @@ if (__PRD__) {
         var path = process.argv[3];
         // 处理一下输入没有加http://或者末尾没有加/的情况
         if (!/^http:\/\/./.test(path)) {
-            path += 'http://';
+            path = 'http://' + path;
         }
         if (!/.\//.test(path)) {
             path += '/';
