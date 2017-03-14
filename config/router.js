@@ -24,6 +24,8 @@ module.exports = [
                 name: 'xy-vote',
                 component: XySpeechVotePage,
                 beforeEnter: (to, from, next) => {
+                    document.title = '希言“动物成语故事大王”比赛开启投票模式啦！';
+
                     store
                         .dispatch(POST_PAGE_INIT_DATA, {
                             activity_id: 60,
