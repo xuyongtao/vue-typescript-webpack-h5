@@ -82,19 +82,22 @@
     div.other {
         display: flex;
         text-align: right;
-        span {
+        span,a {
             flex: 1;
         }
     }
-    span.btn {
+    a.btn {
         text-align: center;
         color: #fff;
         background-color: #ff9f00;
-        box-shadow: 0 1px 1px #c35000;
+        box-shadow: 0 2px 1px #c35000;
         border-radius: @border-radius-size;
+        &:active {
+            box-shadow: none;
+        }
         &.voted {
             background-color: #ccc;
-            box-shadow: none;
+            box-shadow: 0 2px 1px #999;
         }
     }
 }

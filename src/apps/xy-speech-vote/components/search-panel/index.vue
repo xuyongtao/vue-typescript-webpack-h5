@@ -8,13 +8,13 @@
                 </div>
                 <div class="name">{{ exhibition.id }}号-{{ exhibition.name }}</div>
                 <div class="other">
-                    <span
+                    <a
                         class="btn"
                         v-bind:class="{ voted: exhibition.voted }"
-                        v-on:click="vote(exhibition.id, index, exhibition.voted)"
+                        v-on:click.prevent="vote(exhibition.id, index, exhibition.voted)"
                     >
                         {{ exhibition.voted ? '已点赞' : '为TA点赞' }}
-                    </span>
+                    </a>
                     <span>{{ exhibition.votes }}票</span>
                 </div>
             </li>
