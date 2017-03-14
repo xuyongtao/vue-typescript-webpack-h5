@@ -38,7 +38,7 @@
             v-bind:id="video.id"
             v-bind:index="video.index"
             v-bind:voted="video.voted"
-            v-on:updateExhibitionVoteState="updatePlayingExhibitionVoteStateBySearch"
+            v-on:updateExhibitionVoteState="updatePlayingExhibitionVoteState"
             v-on:closePlayer="closePlayer"
         />
         <h5-footer></h5-footer>
@@ -117,13 +117,13 @@
             },
             updatePlayingExhibitionVoteState: function(index) {
                 this.video.voted = true;
-                this.exhibitions[index].voted = true;
-                this.exhibitions[index].votes = this.exhibitions[index].votes + 1;
-            },
-            updatePlayingExhibitionVoteStateBySearch: function(index) {
-                this.video.voted = true;
-                this.searchExhibitions[index].voted = true;
-                this.searchExhibitions[index].votes = this.searchExhibitions[index].votes + 1;
+                if (this.exhibitions[index] && this.currentTabIndex === 0) {
+                    this.exhibitions[index].voted = true;
+                    this.exhibitions[index].votes = this.exhibitions[index].votes + 1;
+                } else if (this.searchExhibitions[index] && this.currentTabIndex === 3) {
+                    this.searchExhibitions[index].voted = true;
+                    this.searchExhibitions[index].votes = this.searchExhibitions[index].votes + 1;
+                }
             },
             closePlayer: function() {
                 this.video.showed = false;

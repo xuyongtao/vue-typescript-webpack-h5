@@ -57,8 +57,8 @@
                         // alert('投票失败，请重试！');
                     }); 
             },
-            playVideo: function(name, video) {
-                this.$emit('playVideo', name, video);
+            playVideo: function(video) {
+                this.$emit('playVideo', video);
             }
         }
     }
