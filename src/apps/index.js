@@ -9,7 +9,17 @@ import store from './vuex/store';
 import AppIndex from './app';
 import { POST_GET_WECHAT_USER } from './vuex/modules/common/store';
 
+var MyPlugin = {};
+MyPlugin.install = function (Vue, options) {
+    Vue.mixin({
+        created: function () {
+            console.log('使用自定义插件');
+        }
+    })
+}
+
 Vue.use(VueRouter);
+Vue.use(MyPlugin);
 
 var router = new VueRouter({
     routes: routerConfig,
