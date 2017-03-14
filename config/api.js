@@ -33,7 +33,7 @@ var apis = {
     },
     xySpeechBooking: '/apis/xy-speech-booking',
     xySpeechVote: {
-        getExhibitions: '/apis/xy-speech-vote/get-exhibitions',
+        getExhibitions: '/apis/vote/get/good-work-list',
         searchExhibitions: '/apis/xy-speech-vote/search-exhibitions',
         vote: '/apis/xy-speech-vote/vote',
         getRankLists: '/apis/xy-speech-vote/get-rank-lists'
