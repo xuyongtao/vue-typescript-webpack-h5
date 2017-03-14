@@ -38,7 +38,7 @@
             loadData: function(){
                 let _this = this;
                 _this.$store
-                    .dispatch(POST_RANKS, { activity_id: activityId, openid: _this.$store.state.common.wechatUser.openId }))
+                    .dispatch(POST_RANKS, { activity_id: activityId, openid: _this.$store.state.common.wechatUser.openId })
                     .then(function(data) {
                         if (data) {
                             _this.$emit('loadRank', data.ranks)

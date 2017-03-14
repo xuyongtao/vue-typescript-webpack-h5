@@ -69,8 +69,9 @@
                     .then(function() {
                         _this.$emit('updateExhibitionVoteState', index);     
                     })
-                    .fail(function() {
-                        alert('投票失败，请重试！');
+                    .fail(function(err) {
+                        alert(err);
+                        // alert('投票失败，请重试！');
                     }); 
             },
             closePlayer: function() {
