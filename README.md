@@ -34,7 +34,7 @@ $ ./release -d ./a/b -p http://m.qmjy.dev/ -i http://api.qmjy.dev/h5
 ```bash
 $ cd 项目根目录（如：cd ~/qmjy-h5）
 $ npm install
-$ ./release -d ./h5.qmin91.com
+$ ./release -d ./h5.qmin91.com -i qmin91.com/h5
 ```
 
 -d 该参数指定前端项目发布到的本地地址，需为相对路径

@@ -85,7 +85,9 @@
                     });  
             },
             loadMore: function() {
-                !this.loading && this.loadData();
+                if (!this.loading && this.pageData.current < this.pageData.total) {
+                    this.loadData();
+                }
             },
             vote: function(id, index, voted) {
                 if (voted) {
