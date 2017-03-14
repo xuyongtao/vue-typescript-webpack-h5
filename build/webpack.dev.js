@@ -56,6 +56,20 @@ app.use(apis.motherSchool.photos, function (req, res) {
     })
 });
 
+// 获取页面初始化数据
+app.use(apis.getPageInitData, function (req, res) {
+    res.send({
+        data: {
+            voted: 12345,
+            pv: 234567
+        },
+        meta: {
+            code: 0,
+            msg: "获取成功"
+        }
+    })
+});
+
 //希言报名
 app.use(apis.xySpeechBooking, function (req, res) {
     res.send({

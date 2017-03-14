@@ -1,3 +1,6 @@
+import store from '../src/apps/vuex/store';
+import { POST_PAGE_INIT_DATA } from '../src/apps/vuex/modules/xy-speech-vote/mutation-types';
+
 const XySpeechBookingPage = resolve => require.ensure([], () => resolve(require('../src/apps/xy-speech-booking/index')), 'xy-booking');
 const XySpeechVotePage = resolve => require.ensure([], () => resolve(require('../src/apps/xy-speech-vote/index')), 'xy-vote');
 
@@ -21,10 +24,18 @@ module.exports = [
                 name: 'xy-vote',
                 component: XySpeechVotePage,
                 beforeEnter: (to, from, next) => {
-                    // TODO: 获取页面初始化数据
-
-                    console.log('beforeEnter');
-                    next();
+                    store
+                        .dispatch(POST_PAGE_INIT_DATA, {
+                            activity_id: 60,
+                            openid: store.state.common.wechatUser.openId
+                        })
+                        .then(() => {
+                            next();
+                        })
+                        .fail(() => {
+                            alert('获取页面数据，将自动刷新页面重新获取');
+                            location.reload();
+                        });
                 }
             }
         ],

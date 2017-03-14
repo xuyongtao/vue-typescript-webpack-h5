@@ -71,8 +71,8 @@
                     index: 0,
                     voted: false
                 },
-                votes: 0,
-                pv: 0,
+                votes: this.$store.state.xySpeechVote.pageInitData.votes || 0,
+                pv: this.$store.state.xySpeechVote.pageInitData.pv || 0,
                 currentTabIndex: 0,
                 homePage: 'http://m.qmin91.com/studio/355',
                 searchExhibitions: [],

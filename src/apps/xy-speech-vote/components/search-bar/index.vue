@@ -14,6 +14,8 @@
 <script>
     import { POST_SEARCH_EXHIBITIONS } from '../../../vuex/modules/xy-speech-vote/mutation-types';
 
+    const activityId = 60;
+
     export default {
         data: function() {
             return {
@@ -39,7 +41,7 @@
 
                     _this
                         .$store
-                        .dispatch(POST_SEARCH_EXHIBITIONS, { keyword: keyword })
+                        .dispatch(POST_SEARCH_EXHIBITIONS, { activity_id: activityId, openid: _this.$store.state.common.wechatUser.openId, keyword: keyword })
                         .then(function(data) {
                             if (data) {
                                 _this.$emit('search', data.exhibitions);

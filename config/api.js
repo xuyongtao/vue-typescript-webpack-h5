@@ -28,6 +28,7 @@ if (process.env.NODE_ENV === envConfig.build.env.NODE_ENV && domain.api) {
 
 var apis = {
     getWechatUser: 'http://qmin91.com/h5/get/wechat-user/by/openid',
+    getPageInitData: '/apis/vote/init',
     motherSchool: {
         photos: '/apis/post-mother-school-photos',
     },

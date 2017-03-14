@@ -2,6 +2,10 @@ import api from '../../../../utils/api';
 import apiUrls from '../../../../../config/api';
 
 import {
+    POST_PAGE_INIT_DATA,
+    POST_PAGE_INIT_DATA_ING,
+    POST_PAGE_INIT_DATA_SUCCESS,
+    POST_PAGE_INIT_DATA_FAIL,
     POST_EXHIBITIONS,
     POST_EXHIBITIONS_ING,
     POST_EXHIBITIONS_SUCCESS,
@@ -22,6 +26,28 @@ import {
 } from './mutation-types';
 
 export default {
+    [POST_PAGE_INIT_DATA](context, data) {
+        context.dispatch(POST_PAGE_INIT_DATA_ING);
+
+        return api
+            .post(apiUrls.getPageInitData, data)
+            .then(res => {
+                context.dispatch(POST_PAGE_INIT_DATA_SUCCESS, res.data);
+            })
+            .fail(res => {
+                context.dispatch(POST_PAGE_INIT_DATA_FAIL);
+            })
+    },
+    [POST_PAGE_INIT_DATA_ING](context) {
+        context.commit(POST_PAGE_INIT_DATA_ING);
+    },
+    [POST_PAGE_INIT_DATA_SUCCESS](context, data) {
+        context.commit(POST_PAGE_INIT_DATA_SUCCESS, data);
+    },
+    [POST_PAGE_INIT_DATA_FAIL](context) {
+        context.commit(POST_PAGE_INIT_DATA_FAIL);
+    },
+
     [POST_EXHIBITIONS](context, data) {
         context.dispatch(POST_EXHIBITIONS_ING);
 
