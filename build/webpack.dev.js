@@ -24,7 +24,7 @@ webpackConfig = merge(webpackConfig, {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env': config.dev.env
+            'process.env': JSON.stringify(config.dev.env)
         }),
     ]
 })
@@ -43,7 +43,7 @@ var app = new webpackDevServer(webpack(webpackConfig), {
 
 app.use(bodyParser.json());
 
-app.use(apis.motherSchool.photos, function(req, res) {
+app.use(apis.motherSchool.photos, function (req, res) {
     res.send({
         data: {
             name: 'yota',
@@ -57,7 +57,7 @@ app.use(apis.motherSchool.photos, function(req, res) {
 });
 
 //希言报名
-app.use(apis.xySpeechBooking, function(req, res) {
+app.use(apis.xySpeechBooking, function (req, res) {
     res.send({
         meta: {
             code: 0,
@@ -67,7 +67,7 @@ app.use(apis.xySpeechBooking, function(req, res) {
 });
 
 // 希言投票活动
-app.use(apis.xySpeechVote.vote, function(req, res) {
+app.use(apis.xySpeechVote.vote, function (req, res) {
     res.send({
         meta: {
             code: 0,
@@ -75,7 +75,7 @@ app.use(apis.xySpeechVote.vote, function(req, res) {
         }
     });
 });
-app.use(apis.xySpeechVote.getExhibitions, function(req, res) {
+app.use(apis.xySpeechVote.getExhibitions, function (req, res) {
     res.send({
         meta: {
             code: 0,
@@ -99,45 +99,45 @@ app.use(apis.xySpeechVote.getExhibitions, function(req, res) {
                 source: 'http://gslb.miaopai.com/stream/OjAJSALnCXL-66qWWBulm4CnFoE_.mp4?ssig=46b8d6543b18ae830c9b88f991ae4a0f&time_stamp=1489390456290&cookie_id=756b4eb5035e965a6ac51aaaabae6cb0',
                 voted: true,
             }, {
-                id: 2,
-                name: '作品名字2',
-                votes: 12,
-                cover: '',
-                source: 'http://gslb.miaopai.com/stream/OjAJSALnCXL-66qWWBulm4CnFoE_.mp4?ssig=46b8d6543b18ae830c9b88f991ae4a0f&time_stamp=1489390456290&cookie_id=756b4eb5035e965a6ac51aaaabae6cb0',
-                voted: false,
-            }, {
-                id: 3,
-                name: '作品名字3',
-                votes: 12,
-                cover: '',
-                source: 'http://gslb.miaopai.com/stream/OjAJSALnCXL-66qWWBulm4CnFoE_.mp4?ssig=46b8d6543b18ae830c9b88f991ae4a0f&time_stamp=1489390456290&cookie_id=756b4eb5035e965a6ac51aaaabae6cb0',
-                voted: false,
-            }, {
-                id: 4,
-                name: '作品名字4',
-                votes: 12,
-                cover: '',
-                source: 'http://gslb.miaopai.com/stream/OjAJSALnCXL-66qWWBulm4CnFoE_.mp4?ssig=46b8d6543b18ae830c9b88f991ae4a0f&time_stamp=1489390456290&cookie_id=756b4eb5035e965a6ac51aaaabae6cb0',
-                voted: true,
-            }, {
-                id: 5,
-                name: '作品名字5',
-                votes: 12,
-                cover: '',
-                source: 'http://gslb.miaopai.com/stream/OjAJSALnCXL-66qWWBulm4CnFoE_.mp4?ssig=46b8d6543b18ae830c9b88f991ae4a0f&time_stamp=1489390456290&cookie_id=756b4eb5035e965a6ac51aaaabae6cb0',
-                voted: false,
-            }, {
-                id: 6,
-                name: '作品名字6',
-                votes: 12,
-                cover: '',
-                source: 'http://gslb.miaopai.com/stream/OjAJSALnCXL-66qWWBulm4CnFoE_.mp4?ssig=46b8d6543b18ae830c9b88f991ae4a0f&time_stamp=1489390456290&cookie_id=756b4eb5035e965a6ac51aaaabae6cb0',
-                voted: true,
-            }]
+                    id: 2,
+                    name: '作品名字2',
+                    votes: 12,
+                    cover: '',
+                    source: 'http://gslb.miaopai.com/stream/OjAJSALnCXL-66qWWBulm4CnFoE_.mp4?ssig=46b8d6543b18ae830c9b88f991ae4a0f&time_stamp=1489390456290&cookie_id=756b4eb5035e965a6ac51aaaabae6cb0',
+                    voted: false,
+                }, {
+                    id: 3,
+                    name: '作品名字3',
+                    votes: 12,
+                    cover: '',
+                    source: 'http://gslb.miaopai.com/stream/OjAJSALnCXL-66qWWBulm4CnFoE_.mp4?ssig=46b8d6543b18ae830c9b88f991ae4a0f&time_stamp=1489390456290&cookie_id=756b4eb5035e965a6ac51aaaabae6cb0',
+                    voted: false,
+                }, {
+                    id: 4,
+                    name: '作品名字4',
+                    votes: 12,
+                    cover: '',
+                    source: 'http://gslb.miaopai.com/stream/OjAJSALnCXL-66qWWBulm4CnFoE_.mp4?ssig=46b8d6543b18ae830c9b88f991ae4a0f&time_stamp=1489390456290&cookie_id=756b4eb5035e965a6ac51aaaabae6cb0',
+                    voted: true,
+                }, {
+                    id: 5,
+                    name: '作品名字5',
+                    votes: 12,
+                    cover: '',
+                    source: 'http://gslb.miaopai.com/stream/OjAJSALnCXL-66qWWBulm4CnFoE_.mp4?ssig=46b8d6543b18ae830c9b88f991ae4a0f&time_stamp=1489390456290&cookie_id=756b4eb5035e965a6ac51aaaabae6cb0',
+                    voted: false,
+                }, {
+                    id: 6,
+                    name: '作品名字6',
+                    votes: 12,
+                    cover: '',
+                    source: 'http://gslb.miaopai.com/stream/OjAJSALnCXL-66qWWBulm4CnFoE_.mp4?ssig=46b8d6543b18ae830c9b88f991ae4a0f&time_stamp=1489390456290&cookie_id=756b4eb5035e965a6ac51aaaabae6cb0',
+                    voted: true,
+                }]
         }
     });
 });
-app.use(apis.xySpeechVote.searchExhibitions, function(req, res) {
+app.use(apis.xySpeechVote.searchExhibitions, function (req, res) {
     res.send({
         meta: {
             code: 0,
@@ -152,17 +152,17 @@ app.use(apis.xySpeechVote.searchExhibitions, function(req, res) {
                 source: 'http://gslb.miaopai.com/stream/OjAJSALnCXL-66qWWBulm4CnFoE_.mp4?ssig=46b8d6543b18ae830c9b88f991ae4a0f&time_stamp=1489390456290&cookie_id=756b4eb5035e965a6ac51aaaabae6cb0',
                 voted: true,
             }, {
-                id: 2,
-                name: '作品名字2',
-                votes: 12,
-                cover: '',
-                source: 'http://gslb.miaopai.com/stream/OjAJSALnCXL-66qWWBulm4CnFoE_.mp4?ssig=46b8d6543b18ae830c9b88f991ae4a0f&time_stamp=1489390456290&cookie_id=756b4eb5035e965a6ac51aaaabae6cb0',
-                voted: false,
-            }]
+                    id: 2,
+                    name: '作品名字2',
+                    votes: 12,
+                    cover: '',
+                    source: 'http://gslb.miaopai.com/stream/OjAJSALnCXL-66qWWBulm4CnFoE_.mp4?ssig=46b8d6543b18ae830c9b88f991ae4a0f&time_stamp=1489390456290&cookie_id=756b4eb5035e965a6ac51aaaabae6cb0',
+                    voted: false,
+                }]
         }
     });
 });
-app.use(apis.xySpeechVote.getRankLists, function(req, res) {
+app.use(apis.xySpeechVote.getRankLists, function (req, res) {
     res.send({
         meta: {
             code: 0,
@@ -174,20 +174,20 @@ app.use(apis.xySpeechVote.getRankLists, function(req, res) {
                 name: "名字一",
                 votes: 125545,
             }, {
-                id: 2,
-                name: "名字二",
-                votes: 12,
-            }, {
-                id: 3,
-                name: "名字很长很长很长很长很长很长",
-                votes: 125,
-            }]
+                    id: 2,
+                    name: "名字二",
+                    votes: 12,
+                }, {
+                    id: 3,
+                    name: "名字很长很长很长很长很长很长",
+                    votes: 125,
+                }]
         }
     })
 });
 
 // end
 
-app.listen(PORT, HOST, function() {
+app.listen(PORT, HOST, function () {
     console.log(localPublicPath);
 });

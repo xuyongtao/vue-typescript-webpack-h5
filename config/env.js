@@ -1,7 +1,7 @@
 module.exports = {
     build: {
         env: {
-            NODE_ENV: '"production"'
+            NODE_ENV: 'production'
         },
         productionSourceMap: true,
         productionGzip: false,
@@ -9,7 +9,7 @@ module.exports = {
     },
     dev: {
         env: {
-            NODE_ENV: '"development"'
+            NODE_ENV: 'development'
         },
         port: 8080,
         host: '127.0.0.1',

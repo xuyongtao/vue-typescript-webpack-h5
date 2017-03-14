@@ -24,7 +24,7 @@ if (process.argv[4]) {
     if (!/^http:\/\/./.test(domainApi)) {
         domainApi = 'http://' + domainApi;
     }
-    if (!/.\//.test(domainApi)) {
+    if (!/.\/$/.test(domainApi)) {
         domainApi += '/';
     }
 }
@@ -32,8 +32,8 @@ if (process.argv[4]) {
 // 处理warning http://stackoverflow.com/questions/30030031/passing-environment-dependent-variables-in-webpack
 webpackConfig.plugins.push(
     new webpack.DefinePlugin({
-        "process.env": config.build.env,
-        "domain.api": domainApi,
+        "process.env": JSON.stringify(config.build.env),
+        "domain.api": JSON.stringify(domainApi),
     })
 )
 webpackConfig.plugins.push(
@@ -51,7 +51,7 @@ if (__PRD__) {
         if (!/^http:\/\/./.test(path)) {
             path = 'http://' + path;
         }
-        if (!/.\//.test(path)) {
+        if (!/.\/$/.test(path)) {
             path += '/';
         }
 
