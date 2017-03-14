@@ -1,8 +1,8 @@
 <template>
     <div id="xy-speech-vote-search-bar">
         <div class="page-info">
-            <span>已有 {{ votes }} 人投票</span>
-            <span>已有 {{ pv }} 人访问</span>
+            <span>已有 <b>{{ votes }}</b> 人投票</span>
+            <span>已有 <b>{{ pv }}</b> 人访问</span>
         </div>
 		<div class="bar">
 			<input v-model="keyword" type="text" placeholder="请输入作品名字或编号">
