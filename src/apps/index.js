@@ -21,15 +21,12 @@ router.beforeEach((to, from, next) => {
 
     if (wechatUser) {
         store.state.common.wechatUser = wechatUser;
-
         next();
     } else {
         var wechatOpenId = to.query.openid;
 
         if (wechatOpenId) {
             //发请求
-            console.log('发送请求');
-
             store
                 .dispatch(POST_GET_WECHAT_USER, {
                     openid: wechatOpenId
@@ -38,9 +35,9 @@ router.beforeEach((to, from, next) => {
                     next();
                 })
                 .fail(() => {
-                    alert('获取您的微信信息失败，请刷新页面重试');
+                    alert('获取您的微信信息失败，将自动刷新页面重新获取');
+                    location.reload();
                 });
-
 
         } else {
             if (process.env.NODE_ENV === envConfig.build.env.NODE_ENV && domain.api) {

@@ -19,7 +19,13 @@ module.exports = [
             }, {
                 path: 'xy-speech-vote',
                 name: 'xy-vote',
-                component: XySpeechVotePage
+                component: XySpeechVotePage,
+                beforeEnter: (to, from, next) => {
+                    // TODO: 获取页面初始化数据
+
+                    console.log('beforeEnter');
+                    next();
+                }
             }
         ],
     },
