@@ -38,9 +38,9 @@
             return {
                 loading: false,
                 pageData: {
-                    current: 0,
+                    current: null,
                     size: pageSize,
-                    total: 0,
+                    total: null,
                 }      
             }
         }, 
