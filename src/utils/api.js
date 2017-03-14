@@ -53,10 +53,7 @@ module.exports = {
                 method: "GET",
                 url,
                 data
-            }))
-            .fail(error => {
-                console.log(error);
-            })
+            }));
     },
     post: (url, data) => {
         return Promise
@@ -64,9 +61,6 @@ module.exports = {
                 method: "POST",
                 url,
                 data
-            }))
-            .fail(error => {
-                console.log(error);
-            })
+            }));
     }
 }
