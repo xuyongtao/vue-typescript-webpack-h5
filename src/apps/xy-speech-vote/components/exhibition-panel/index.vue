@@ -28,12 +28,15 @@
 
 <script>
     import * as _ from 'lodash';
-    import { POST_EXHIBITIONS, POST_VOTE } from '../../../vuex/modules/xy-speech-vote/mutation-types';
+    import { POST_EXHIBITIONS } from '../../../vuex/modules/xy-speech-vote/mutation-types';
+    import voteMixin from '../../mixins/vote';
+    import playerMixin from '../../mixins/player';
 
     const pageSize = 10;
     const activityId = 60;
 
     export default {
+        mixins: [voteMixin, playerMixin],
         data: function() {
             return {
                 loading: false,
@@ -88,28 +91,6 @@
                 if (!this.loading && this.pageData.current < this.pageData.total) {
                     this.loadData();
                 }
-            },
-            vote: function(id, index, voted) {
-                if (voted) {
-                    alert('您已为TA点赞');
-                    return;
-                }
-
-                let _this = this;
-
-                _this
-                    .$store
-                    .dispatch(POST_VOTE, { activity_applicant_id: id, openid: _this.$store.state.common.wechatUser.openId })
-                    .then(function() {
-                        _this.$emit('updateExhibitionVoteState', index);    
-                    })
-                    .fail(function(err) {
-                        alert(err);
-                        // alert('投票失败，请重试！');
-                    }); 
-            },
-            playVideo: function(video) {
-                this.$emit('playVideo', video);
             }
         }
     }
