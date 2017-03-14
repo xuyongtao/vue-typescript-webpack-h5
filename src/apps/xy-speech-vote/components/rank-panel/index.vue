@@ -38,6 +38,8 @@
         methods: {
             loadData: function(){
                 let _this = this;
+
+                _this.loading = true;
                 _this.$store
                     .dispatch(POST_RANKS, { activity_id: activityId, openid: _this.$store.state.common.wechatUser.openId })
                     .then(function(data) {
