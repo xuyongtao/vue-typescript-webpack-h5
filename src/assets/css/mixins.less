@@ -1,7 +1,38 @@
 @import "variable.less";
-
 .scroll-view() {
     max-height: @max-height-scroll-view;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+}
+
+.inline-block-fix() {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+.text-overflow() {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.border-radius(@value) {
+    -webkit-border-radius: @value;
+    -moz-border-radius: @value;
+    -o-border-radius: @value;
+    border-radius: @value;
+}
+
+//clear float
+.clearfix() {
+    *zoom: 1;
+    &:before, &:after {
+        display: table;
+        content: "";
+        line-height: 0;
+    }
+    &:after {
+        clear: both;
+    }
 }
