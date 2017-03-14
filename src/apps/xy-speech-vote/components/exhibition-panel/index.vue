@@ -27,9 +27,11 @@
 </template>
 
 <script>
+    import * as _ from 'lodash';
     import { POST_EXHIBITIONS, POST_VOTE } from '../../../vuex/modules/xy-speech-vote/mutation-types';
 
     const pageSize = 10;
+    const activityId = 60;
 
     export default {
         data: function() {
@@ -39,7 +41,7 @@
                     current: 0,
                     size: pageSize,
                     total: 0,
-                }       
+                }      
             }
         }, 
         props: {
@@ -61,7 +63,7 @@
                 _this.loading = true;
                 _this
                     .$store
-                    .dispatch(POST_EXHIBITIONS, _this.pageData)
+                    .dispatch(POST_EXHIBITIONS, _.assign({}, _this.pageData, { activity_id: activityId, openid: _this.$store.state.common.wechatUser.openId }))
                     .then(function(data) {
                         if (data) {
                             _this.pageData = {

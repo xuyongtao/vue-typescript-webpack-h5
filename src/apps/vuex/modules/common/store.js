@@ -12,7 +12,7 @@ const actions = {
     [POST_GET_WECHAT_USER](context, data) {
         context.dispatch(POST_GET_WECHAT_USER_ING);
 
-        api
+        return api
             .post(apiUrls.getWechatUser, data)
             .then(res => {
                 context.dispatch(POST_GET_WECHAT_USER_SUCCESS, res.data);
