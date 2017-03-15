@@ -29,7 +29,6 @@ function request({
                 .catch(() => {
                     throw new Error("网络或服务器错误");
                 });
-            ;
         })
         .then((res) => {
             if (res.meta && res.meta.code != 0) {
